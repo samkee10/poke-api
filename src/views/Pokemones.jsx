@@ -11,8 +11,8 @@ const Pokemones = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-        // Ajusta esto según la estructura de tu API
-        setPokemones(response.data.results) // Probablemente la propiedad es 'results'
+
+        setPokemones(response.data.results)
       } catch (error) {
         console.error('Error fetching Pokemon data:', error)
       }
@@ -24,7 +24,7 @@ const Pokemones = () => {
   const handlePokemonSelect = async (pokemonName) => {
     try {
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-      setPokemonDetails(response.data) // Aquí obtienes la información detallada del Pokémon
+      setPokemonDetails(response.data)
       setSelectedPokemon(pokemonName)
     } catch (error) {
       console.error(`Error fetching details for ${pokemonName}:`, error)
